@@ -86,6 +86,19 @@ Node* llfilter(Node* head, Comp pred)
     if (head == nullptr){
         return head;
     }
+
+    Node* keep = llfilter(head->next, pred);
+
+    if (pred(head->val)){
+        return keep;
+    }
+
+    else{
+        Node* temp = keep;
+        keep = head;
+        keep->next = temp;
+        return keep;
+    }
     
 
 }

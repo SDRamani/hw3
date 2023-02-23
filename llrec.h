@@ -90,6 +90,7 @@ Node* llfilter(Node* head, Comp pred)
     Node* keep = llfilter(head->next, pred);
 
     if (pred(head->val)){
+        delete head;
         return keep;
     }
 
